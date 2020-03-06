@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://components/objects/snowpile/snowpile.gd" type="Script" id=1]
+[ext_resource path="res://components/objects/snowpile/boardClose_stage3_car-show-pile.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.79019, 8.68068 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.37211, 7.51731 )
+
+[node name="snowpile" type="StaticBody2D"]
+collision_layer = 16
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.4, 1 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 557.393
+margin_top = 216.082
+margin_right = 646.393
+margin_bottom = 230.082
+rect_scale = Vector2( 1.56, 1.96 )
+text = "Collecte snow"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 8, 3 )
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 0.96, 1.52 )
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = -3.14159
+scale = Vector2( 20, 6 )
+shape = SubResource( 2 )
