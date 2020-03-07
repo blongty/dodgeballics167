@@ -26,7 +26,13 @@ export (int) var move_speed = 400
 export (float, 0, 1, 0.05) var joy_deadzone = 0.2
 var aiming = false
 
-#func _ready():
+var blocker
+var blocker_sprite
+
+func _ready():
+	blocker = get_node("Block/CollisionShape2D")
+	blocker_sprite = get_node("Block/Sprite")
+	blocker_disable()
 	#add_child(aim.instance())
 	#self.add_child(sound1)
 	#sound1.stream = load("res://catched.mp3")
@@ -70,16 +76,27 @@ func _process(delta):
 	
 	# Rotation
 	if motion != Vector2(0,0):
-		set_rotation(atan2(motion.y, motion.x))
+		set_rotation(atan2(Input.get_joy_axis(player_id, JOY_AXIS_1), Input.get_joy_axis(player_id, JOY_AXIS_0)))
 	
 	# Draws trajectory of snowballs when SHOOT* is held down
 	#if snowballcount > 0:
 	#blocking
 	if Input.is_joy_button_pressed(player_id, JOY_BUTTON_5):
-		block()
+		blocker_enable()
+		motion.y = 0
+		motion.x = 0
+	else:
+		blocker_disable()
 	#		if Input.is_action_pressed("SHOOT") or Input.is_action_pressed("SHOOT_BY_MOUSE"):
 	#			draw_trajectory()
 	
+func blocker_enable():
+	blocker_sprite.visible = true
+	blocker.disabled = false
+	
+func blocker_disable():
+	blocker_sprite.visible = false
+	blocker.disabled = true
 	# Placeholder
 	#if (Input.is_action_just_pressed("CATCH") and in_range > 0 and cool_down <= 0):
 	#	in_range = 0

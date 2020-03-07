@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://components/objects/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://components/objects/Player/slap/004.png" type="Texture" id=2]
-[ext_resource path="res://components/objects/Player/tmp_player.png" type="Texture" id=3]
-[ext_resource path="res://components/objects/Player/block/block.png" type="Texture" id=4]
+[ext_resource path="res://components/objects/Player/tmp_player.png" type="Texture" id=2]
+[ext_resource path="res://components/objects/Player/slap/000.png" type="Texture" id=3]
+[ext_resource path="res://components/objects/Player/slap/001.png" type="Texture" id=4]
 [ext_resource path="res://components/objects/Player/slap/002.png" type="Texture" id=5]
 [ext_resource path="res://components/objects/Player/slap/003.png" type="Texture" id=6]
-[ext_resource path="res://components/objects/Player/slap/005.png" type="Texture" id=7]
-[ext_resource path="res://components/objects/Player/slap/006.png" type="Texture" id=8]
-[ext_resource path="res://components/objects/Player/slap/001.png" type="Texture" id=9]
+[ext_resource path="res://components/objects/Player/slap/004.png" type="Texture" id=7]
+[ext_resource path="res://components/objects/Player/slap/005.png" type="Texture" id=8]
+[ext_resource path="res://components/objects/Player/slap/006.png" type="Texture" id=9]
 [ext_resource path="res://components/objects/Player/slap/007.png" type="Texture" id=10]
 [ext_resource path="res://components/objects/Player/slap/008.png" type="Texture" id=11]
-[ext_resource path="res://components/objects/Player/slap/000.png" type="Texture" id=12]
+[ext_resource path="res://components/objects/Player/block/block.png" type="Texture" id=12]
+[ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.6507
@@ -21,21 +22,24 @@ radius = 11.7147
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "Slap",
 "speed": 24.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 7.87391, 29.9814 )
+
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 27
+collision_mask = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -172.791 ]
 }
 
 [node name="Sprite2" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="firepoint" type="Node" parent="."]
 
@@ -46,7 +50,7 @@ shape = SubResource( 1 )
 one_way_collision_margin = 0.0
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 27
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
@@ -59,9 +63,18 @@ position = Vector2( 16, 0 )
 frames = SubResource( 3 )
 animation = "Slap"
 
-[node name="Block" type="Sprite" parent="."]
-visible = false
+[node name="Block" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="Sprite" type="Sprite" parent="Block"]
 position = Vector2( 16, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+position = Vector2( 16, 0 )
+shape = SubResource( 4 )
+
+[node name="Particles2D" parent="." instance=ExtResource( 13 )]
 [connection signal="area_entered" from="Area2D" to="." method="_on_snowball_enter"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

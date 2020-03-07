@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://components/objects/shake/shake.gd" type="Script" id=1]
+
+[node name="Shake" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ShakeTween" type="Tween" parent="."]
+
+[node name="fre" type="Timer" parent="."]
+
+[node name="dur" type="Timer" parent="."]
+[connection signal="timeout" from="fre" to="." method="_on_fre_timeout"]
+[connection signal="timeout" from="dur" to="." method="_on_dur_timeout"]

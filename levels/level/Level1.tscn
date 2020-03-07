@@ -24,28 +24,20 @@ z_index = -6
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1838.55, 748.492 )
-max_snowballcount = 1
-init_snowballcount = 1
 snowp = ExtResource( 4 )
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 357.51, 483.559 )
-max_snowballcount = 1
-init_snowballcount = 1
 snowp = ExtResource( 4 )
 player_id = 1
 
 [node name="Player3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1244.07, 541.715 )
-max_snowballcount = 1
-init_snowballcount = 1
 snowp = ExtResource( 4 )
 player_id = 2
 
 [node name="Player4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1127.75, 238.012 )
-max_snowballcount = 1
-init_snowballcount = 1
 snowp = ExtResource( 4 )
 player_id = 3
 
