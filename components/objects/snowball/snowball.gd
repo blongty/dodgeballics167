@@ -12,7 +12,7 @@ var vel_2 = Vector2(100, 100)
 func _ready():
 	set_linear_velocity(Vector2(50,50))
 	#apply_impulse(Vector2(), direction.normalized() * speed)
-	if (vel_2>=get_linear_velocity() >= vel_1):
+	if (vel_2 >= get_linear_velocity()  and get_linear_velocity() >= vel_1):
 		$Sprite.set_modulate(Color(0,1,0))
 		print("ball state is one")
 	elif (get_linear_velocity() > vel_2):
