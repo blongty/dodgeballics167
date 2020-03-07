@@ -30,7 +30,7 @@ var blocker
 var blocker_sprite
 
 func _ready():
-	blocker = get_node("Block")
+	blocker = get_node("Block/CollisionShape2D")
 	blocker_sprite = get_node("Block/Sprite")
 	blocker_disable()
 	#add_child(aim.instance())
@@ -92,11 +92,11 @@ func _process(delta):
 	
 func blocker_enable():
 	blocker_sprite.visible = true
-	blocker.set_physics_process(true)
+	blocker.disabled = false
 	
 func blocker_disable():
 	blocker_sprite.visible = false
-	blocker.set_physics_process(false)
+	blocker.disabled = true
 	# Placeholder
 	#if (Input.is_action_just_pressed("CATCH") and in_range > 0 and cool_down <= 0):
 	#	in_range = 0
