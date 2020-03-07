@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://components/objects/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://components/objects/Player/tmp_player.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://components/objects/Player/slap/007.png" type="Texture" id=10]
 [ext_resource path="res://components/objects/Player/slap/008.png" type="Texture" id=11]
 [ext_resource path="res://components/objects/Player/block/block.png" type="Texture" id=12]
+[ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.6507
@@ -73,5 +74,7 @@ texture = ExtResource( 12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
 position = Vector2( 16, 0 )
 shape = SubResource( 4 )
+
+[node name="Particles2D" parent="." instance=ExtResource( 13 )]
 [connection signal="area_entered" from="Area2D" to="." method="_on_snowball_enter"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
