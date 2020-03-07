@@ -1,17 +1,17 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://components/objects/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://components/objects/Player/anim/slap/008.png" type="Texture" id=2]
+[ext_resource path="res://components/objects/Player/slap/004.png" type="Texture" id=2]
 [ext_resource path="res://components/objects/Player/tmp_player.png" type="Texture" id=3]
 [ext_resource path="res://components/objects/Player/block/block.png" type="Texture" id=4]
-[ext_resource path="res://components/objects/Player/anim/slap/007.png" type="Texture" id=5]
-[ext_resource path="res://components/objects/Player/anim/slap/000.png" type="Texture" id=6]
-[ext_resource path="res://components/objects/Player/anim/slap/005.png" type="Texture" id=7]
-[ext_resource path="res://components/objects/Player/anim/slap/004.png" type="Texture" id=8]
-[ext_resource path="res://components/objects/Player/anim/slap/006.png" type="Texture" id=9]
-[ext_resource path="res://components/objects/Player/anim/slap/001.png" type="Texture" id=10]
-[ext_resource path="res://components/objects/Player/anim/slap/003.png" type="Texture" id=11]
-[ext_resource path="res://components/objects/Player/anim/slap/002.png" type="Texture" id=12]
+[ext_resource path="res://components/objects/Player/slap/002.png" type="Texture" id=5]
+[ext_resource path="res://components/objects/Player/slap/003.png" type="Texture" id=6]
+[ext_resource path="res://components/objects/Player/slap/005.png" type="Texture" id=7]
+[ext_resource path="res://components/objects/Player/slap/006.png" type="Texture" id=8]
+[ext_resource path="res://components/objects/Player/slap/001.png" type="Texture" id=9]
+[ext_resource path="res://components/objects/Player/slap/007.png" type="Texture" id=10]
+[ext_resource path="res://components/objects/Player/slap/008.png" type="Texture" id=11]
+[ext_resource path="res://components/objects/Player/slap/000.png" type="Texture" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.6507
@@ -21,7 +21,7 @@ radius = 11.7147
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "Slap",
 "speed": 24.0
