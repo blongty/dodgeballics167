@@ -11,13 +11,7 @@ func _ready():
 	pass # Replace with function body.
 	
 func _input(event):
-	if event is InputEventKey:
-		if event.is_pressed() and event.get_scancode() == KEY_E:
-			
-			set_emitting(true)
-			
-		elif event.is_pressed() and event.get_scancode() == KEY_SPACE:
-			queue_free()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
