@@ -18,17 +18,20 @@ func _ready():
 	if (speed >= state_one_speed  and speed <= state_two_speed):
 		$Sprite.set_modulate(Color(0,1,1))
 		set_angular_damp(normal_ball_damp)
+		set_linear_damp(normal_ball_damp)
 		
 		print("ball state is one")
 	#The ball is in the high speed, can not be blocked
 	elif (speed > state_two_speed):
 		$Sprite.set_modulate(Color(1,0,0))
 		set_angular_damp(normal_ball_damp)
+		set_linear_damp(normal_ball_damp)
 		print("ball state is two")
 	#The ball is dead.
 	else:
 		$Sprite.set_modulate(Color(1,1,1))
 		set_angular_damp(dead_ball_damp)
+		set_linear_damp(dead_ball_damp)
 		
 		
 # Call this function before adding the instance to the tree
