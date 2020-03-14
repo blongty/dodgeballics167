@@ -1,23 +1,26 @@
 extends RigidBody2D
-
+export(float) var state_one_speed
+export(float) var state_two_speed
 var direction : Vector2
 #var life = 1
-var vel_1 = Vector2(50, 50)
-
-var vel_2 = Vector2(100, 100)
 #export(float) var speed = 1000
 #var pid_owner
 
+
 # Once added to the scene tree, function will immediately start moving
 func _ready():
-	set_linear_velocity(Vector2(50,50))
+	var velocity = get_linear_velocity()
+	var speed = velocity.length()
 	#apply_impulse(Vector2(), direction.normalized() * speed)
-	if (vel_2 >= get_linear_velocity()  and get_linear_velocity() >= vel_1):
+	#The ball is in the normal state, can be blocked
+	if (speed >= state_one_speed  and speed <= state_two_speed):
 		$Sprite.set_modulate(Color(0,1,0))
 		print("ball state is one")
-	elif (get_linear_velocity() > vel_2):
+	#The ball is in the high speed, can not be blocked
+	elif (speed > state_two_speed):
 		$Sprite.set_modulate(Color(1, 0, 0))
 		print("ball state is two")
+	#The ball is dead.
 	else:
 		$Sprite.set_modulate(Color(1,1,1))
 		
