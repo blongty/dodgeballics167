@@ -136,96 +136,6 @@ func get_closest_interactable():
 			closest_obj_dist = get_global_transform().origin.distance_to(i.get_global_transform().get_origin())
 	
 	return closest_obj
-	
-#func block():
-	 
-#func _input(event):
-	# When releasing SHOOT* button, fires a snowball into the scene.
-	# 	Will aim with the right analog stick, though when centered within deadzones
-	#	it will fire in current direction. If mouse will fire at mouse.
-	#	With limitations of Input object, we must create another InputEventAction
-	#	that seperates regular SHOOT and SHOOT_BY_MOUSE
-	#var bb
-	#if event.get_device() == player_id:
-		#if event.is_action_released("SHOOT") or event.is_action_released("SHOOT_BY_MOUSE"):
-			#if snowballcount > 0:
-			#	full_ammo = false
-				#cool_down = 100
-			#	bb = bullet.instance()
-			#	bb.position = position
-			#	bb.pid_owner = player_id
-				
-				#if abs(Input.get_joy_axis(player_id, JOY_AXIS_2)) > joy_deadzone or \
-	  			#  abs(Input.get_joy_axis(player_id, JOY_AXIS_3)) > joy_deadzone:
-				#	bb.set_direction_offset(Vector2(Input.get_joy_axis(get_player_id(), JOY_AXIS_2), Input.get_joy_axis(get_player_id(), JOY_AXIS_3)))
-				#elif !using_r_stick() and not Input.is_action_just_released("SHOOT_BY_MOUSE"):
-				#else:
-					#if motion != Vector2.ZERO:
-					#	bb.set_direction_offset(motion)
-					#	last_motion = motion
-					#else:
-						#bb.set_direction_offset(last_motion)
-#				elif Input.is_action_just_released("SHOOT_BY_MOUSE"):
-#					bb.set_direction_absolute(get_global_mouse_position())
-#
-				# Add snowball to scene and fire
-			#	get_tree().get_root().get_node("Node2D").add_child(bb)
-			#	print(bb.get_path())
-				#print(get_path)
-			#	snowballcount -= 1
-
-#func draw_trajectory():
-	# Create an aim object at this object's current position
-	# Also passes to the aim object it's prefered direction, checking 
-	# to see if using analog or just mouse
-	#var bb
-	#bb = aim.instance()
-	#bb.position = position
-	#bb.pid_owner = player_id
-	
-	#if abs(Input.get_joy_axis(player_id, JOY_AXIS_2)) > joy_deadzone or \
-	  #abs(Input.get_joy_axis(player_id, JOY_AXIS_3)) > joy_deadzone:
-		#bb.set_direction_offset(Vector2(Input.get_joy_axis(get_player_id(), JOY_AXIS_2), Input.get_joy_axis(get_player_id(), JOY_AXIS_3)))
-#	elif not using_r_stick() and not Input.is_mouse_button_pressed(BUTTON_LEFT):
-	#else:
-		#if motion != Vector2.ZERO:
-			#bb.set_direction_offset(motion)
-			#last_motion = motion
-		#else:
-			#bb.set_direction_offset(last_motion)
-#	elif Input.is_mouse_button_pressed(BUTTON_LEFT):
-#		bb.set_direction_absolute(get_global_mouse_position())
-	
-	# Adds to the scene and draws it
-	#get_tree().get_root().get_node("Node2D").add_child(bb)
-
-#func _on_snowball_enter(area : Area2D):
-	# If within generator or snowpile
-	#if area.collision_layer == 16 or area.collision_layer == 64:
-		#interactables.append(area.get_parent())
-		#canInteract = true
-	# If within incoming snowball and gets hit by
-	#elif area.collision_layer == 2 and area.get_parent().get_pid_owner() != player_id:
-		#add_snowballcount(1)
-	# No idea wtf this is
-	#else:
-		#in_range = 100
-
-#func _on_Area2D_area_exited(area):
-	#if area.collision_layer == 16 or area.collision_layer == 64:
-		#interactables.erase(area.get_parent())
-		#if interactables.empty():
-			#canInteract = false
-
-#func add_snowballcount(amount):
-	#snowballcount += amount
-	#if snowballcount > max_snowballcount:
-		#full_ammo = true
-		#var overflow = snowballcount - max_snowballcount
-		#snowballcount = max_snowballcount
-		#return overflow
-
-	#return 0
 
 func get_player_id():
 	return player_id
@@ -252,3 +162,16 @@ func moving_at_all():
 		Input.is_action_pressed("MOVE_DOWN") or \
 		Input.is_action_pressed("MOVE_LEFT") or \
 		Input.is_action_pressed("MOVE_RIGHT")
+
+
+func _on_Field_ready():
+	pass # Replace with function body.
+
+
+func _on_snowball_enter(area : Area2D):
+	if area.collision_layer == 2:
+		if area.parent.state == 0:
+			pass
+		else:
+			_draw();
+			queue_free();

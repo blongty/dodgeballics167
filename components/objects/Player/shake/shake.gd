@@ -38,3 +38,7 @@ func _on_Camera2D_ready():
 
 func _on_Camera2D_draw():
 	start()
+
+
+func _on_Field_ready():
+	start();

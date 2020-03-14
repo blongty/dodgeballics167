@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/level/pixelate-field.png" type="Texture" id=1]
 [ext_resource path="res://components/objects/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://components/objects/snowball/snowball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/level/test.gd" type="Script" id=4]
+[ext_resource path="res://components/objects/Player/shake/shake.tscn" type="PackedScene" id=5]
 
 [node name="Field" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="pixel-field-background" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
@@ -53,3 +56,11 @@ rotation = -1.63862
 [node name="Snowball6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1100, 780 )
 rotation = -1.63862
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+offset = Vector2( 1, 1 )
+current = true
+
+[node name="Shake" parent="Camera2D" instance=ExtResource( 5 )]
+[connection signal="ready" from="." to="Camera2D/Shake" method="_on_Field_ready"]
