@@ -1,6 +1,8 @@
 extends RigidBody2D
-export(float) var state_one_speed
-export(float) var state_two_speed
+export(float) var state_one_speed=20
+export(float) var state_two_speed=50
+export(float) var dead_ball_damp=50
+export(float) var normal_ball_damp=-1
 var direction : Vector2
 #var life = 1
 #export(float) var speed = 1000
@@ -14,15 +16,20 @@ func _ready():
 	#apply_impulse(Vector2(), direction.normalized() * speed)
 	#The ball is in the normal state, can be blocked
 	if (speed >= state_one_speed  and speed <= state_two_speed):
-		$Sprite.set_modulate(Color(0,1,0))
+		$Sprite.set_modulate(Color(0,1,1))
+		set_angular_damp(normal_ball_damp)
+		
 		print("ball state is one")
 	#The ball is in the high speed, can not be blocked
 	elif (speed > state_two_speed):
-		$Sprite.set_modulate(Color(1, 0, 0))
+		$Sprite.set_modulate(Color(1,0,0))
+		set_angular_damp(normal_ball_damp)
 		print("ball state is two")
 	#The ball is dead.
 	else:
 		$Sprite.set_modulate(Color(1,1,1))
+		set_angular_damp(dead_ball_damp)
+		
 		
 # Call this function before adding the instance to the tree
 # Given a point, will launch snowball towards that point
