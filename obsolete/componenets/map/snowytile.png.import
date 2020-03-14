@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boardClose_stage3_car-show-pile.png-dc00fe37784ca5cba7770ce62373d423.stex"
+path="res://.import/snowytile.png-8c44ba0ca124718baca7e93f73bea1cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/objects/snowpile/boardClose_stage3_car-show-pile.png"
-dest_files=[ "res://.import/boardClose_stage3_car-show-pile.png-dc00fe37784ca5cba7770ce62373d423.stex" ]
+source_file="res://obsolete/componenets/map/snowytile.png"
+dest_files=[ "res://.import/snowytile.png-8c44ba0ca124718baca7e93f73bea1cd.stex" ]
 
 [params]
 

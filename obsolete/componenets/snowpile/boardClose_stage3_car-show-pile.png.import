@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flamesheet.png-af385fa951b4f9ebbf5dfff7fb073a61.stex"
+path="res://.import/boardClose_stage3_car-show-pile.png-aaf7308d315a93e725f710a934586b9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/objects/enemies/flamesheet.png"
-dest_files=[ "res://.import/flamesheet.png-af385fa951b4f9ebbf5dfff7fb073a61.stex" ]
+source_file="res://obsolete/componenets/snowpile/boardClose_stage3_car-show-pile.png"
+dest_files=[ "res://.import/boardClose_stage3_car-show-pile.png-aaf7308d315a93e725f710a934586b9c.stex" ]
 
 [params]
 

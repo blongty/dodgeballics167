@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://components/objects/enemies/Enemy.gd"
+"path": "res://obsolete/componenets/enemies/Enemy.gd"
 } ]
 _global_script_class_icons={
 "Enemy": ""
@@ -20,8 +20,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="kingcastlehigh"
-run/main_scene="res://levels/level/Level1.tscn"
+config/name="Dodgeballistic"
+run/main_scene="res://levels/level/Dodgeballistic.tscn"
 config/icon="res://icon.png"
 
 [display]

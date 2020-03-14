@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/snowytile.png-1af50ae9c47da0e362e3d4d10b252363.stex"
+path="res://.import/base.png-bddd36caa0b0d203e5044aa1b9946667.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/map/snowytile.png"
-dest_files=[ "res://.import/snowytile.png-1af50ae9c47da0e362e3d4d10b252363.stex" ]
+source_file="res://obsolete/componenets/Aim/base.png"
+dest_files=[ "res://.import/base.png-bddd36caa0b0d203e5044aa1b9946667.stex" ]
 
 [params]
 

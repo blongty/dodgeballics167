@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cartoon-fire-flame-sheet-sprite-animation-set_53562-7100.jpg-af7a015c3747fa06bdd7b3da3eda6114.stex"
+path="res://.import/ice-king.png-23ed582ceb127fa528721af307af427f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/objects/enemies/cartoon-fire-flame-sheet-sprite-animation-set_53562-7100.jpg"
-dest_files=[ "res://.import/cartoon-fire-flame-sheet-sprite-animation-set_53562-7100.jpg-af7a015c3747fa06bdd7b3da3eda6114.stex" ]
+source_file="res://obsolete/componenets/ice_king/ice-king.png"
+dest_files=[ "res://.import/ice-king.png-23ed582ceb127fa528721af307af427f.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
