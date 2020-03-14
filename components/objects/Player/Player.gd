@@ -173,5 +173,4 @@ func _on_snowball_enter(area : Area2D):
 		if area.parent.state == 0:
 			pass
 		else:
-			_draw();
 			queue_free();
