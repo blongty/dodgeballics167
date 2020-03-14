@@ -10,7 +10,7 @@ var direction : Vector2
 
 
 # Once added to the scene tree, function will immediately start moving
-func _ready():
+func _update():
 	var velocity = get_linear_velocity()
 	var speed = velocity.length()
 	#apply_impulse(Vector2(), direction.normalized() * speed)
