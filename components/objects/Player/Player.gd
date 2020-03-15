@@ -173,4 +173,6 @@ func _on_snowball_enter(area : Area2D):
 		if area.parent.state == 0:
 			pass
 		else:
+			var parent = get_parent();
+			parent.shake();
 			queue_free();
