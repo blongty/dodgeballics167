@@ -89,6 +89,8 @@ position = Vector2( 1100, 780 )
 rotation = -1.63862
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+current = true
 script = ExtResource( 6 )
 
 [node name="Shake" parent="Camera2D" instance=ExtResource( 5 )]
