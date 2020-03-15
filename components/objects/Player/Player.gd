@@ -16,12 +16,14 @@ var blocker_sprite
 var slap_controller
 var blocking = false
 var slapping = false
+var slap_button_down;
 
 func _ready():
 	blocker = get_node("Block/CollisionShape2D")
 	blocker_sprite = get_node("Block/Sprite")
 	blocker_disable()
 	slap_controller = get_node("Slap")
+	slap_button_down = Input.is_joy_button_pressed(player_id, JOY_L2)
 
 func _physics_process(delta):
 	move_and_slide(motion);
@@ -52,9 +54,7 @@ func _process(delta):
 	if motion != Vector2(0,0):
 		set_rotation(atan2(Input.get_joy_axis(player_id, JOY_AXIS_1), Input.get_joy_axis(player_id, JOY_AXIS_0)))
 	
-	# Draws trajectory of snowballs when SHOOT* is held down
-	#if snowballcount > 0:
-	#blocking
+	# Blocking
 	if Input.is_joy_button_pressed(player_id, JOY_L2) and not slapping:
 		blocker_enable()
 		motion.y = 0
@@ -62,8 +62,12 @@ func _process(delta):
 	else:
 		blocker_disable()
 	
-	if Input.is_joy_button_pressed(player_id, JOY_R2) and not blocking:
+	# Slapping
+	if Input.is_joy_button_pressed(player_id, JOY_R2) and not blocking and not slap_button_down:
+		slap_button_down = true
 		slap()
+	elif not Input.is_joy_button_pressed(player_id, JOY_R2) and slap_button_down:
+		slap_button_down = false
 		
 
 func slap():

@@ -27,6 +27,7 @@ func slap(power, cooldown):
 			
 			var speed = ball.get_linear_velocity().length()
 			speed += power
+			print("set speed to %s" % speed)
 			
 			ball.set_linear_velocity(Vector2(speed * cos(dir), speed * sin(dir)))
 

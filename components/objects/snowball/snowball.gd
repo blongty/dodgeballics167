@@ -4,35 +4,38 @@ export(float) var state_two_speed=50
 export(float) var dead_ball_damp=50
 export(float) var normal_ball_damp=-1
 var direction : Vector2
-#var life = 1
-#export(float) var speed = 1000
-#var pid_owner
 
+func _ready():
+	pass
 
 # Once added to the scene tree, function will immediately start moving
-func _update():
+func _physics_process(delta):
 	var velocity = get_linear_velocity()
 	var speed = velocity.length()
 	#apply_impulse(Vector2(), direction.normalized() * speed)
+	
 	#The ball is in the normal state, can be blocked
 	if (speed >= state_one_speed  and speed <= state_two_speed):
 		$Sprite.set_modulate(Color(0,1,1))
 		set_angular_damp(normal_ball_damp)
 		set_linear_damp(normal_ball_damp)
 		
-		print("ball state is one")
+#		print("ball state is one")
+	
 	#The ball is in the high speed, can not be blocked
 	elif (speed > state_two_speed):
 		$Sprite.set_modulate(Color(1,0,0))
 		set_angular_damp(normal_ball_damp)
 		set_linear_damp(normal_ball_damp)
-		print("ball state is two")
+#		print("ball state is two")
+	
 	#The ball is dead.
-	else:
+	elif speed < state_one_speed:
 		$Sprite.set_modulate(Color(1,1,1))
 		set_angular_damp(dead_ball_damp)
 		set_linear_damp(dead_ball_damp)
-		
+	
+#	print(speed)
 		
 # Call this function before adding the instance to the tree
 # Given a point, will launch snowball towards that point

@@ -43,6 +43,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -172.791 ]
 }
+slap_power = 2500.0
+slap_cooldown = 0.2
 
 [node name="Sprite2" type="Sprite" parent="."]
 texture = ExtResource( 2 )
