@@ -13,6 +13,7 @@ var motion = Vector2()
 #export (PackedScene) var bullet
 #export (PackedScene) var aim
 export (PackedScene) var snowp
+export (PackedScene) var particle1
 export (int) var player_id
 #export (float, 0, 1, .01) var axis_deadzone
 #onready var firepoint = get_node("firepoint")
@@ -173,6 +174,8 @@ func _on_snowball_enter(area : Area2D):
 		if area.parent.state == 0:
 			pass
 		else:
+			var death_p = get_node("Particles2D")
+			death_p.death()
 			var parent = get_parent();
 			parent.shake();
 			queue_free();

@@ -10,14 +10,8 @@ extends Particles2D
 func _ready():
 	pass # Replace with function body.
 	
-func _input(event):
-	if event is InputEventKey:
-		if event.is_pressed() and event.get_scancode() == KEY_E:
-			
-			set_emitting(true)
-			
-		elif event.is_pressed() and event.get_scancode() == KEY_SPACE:
-			queue_free()
+func death():
+	set_emitting(true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
