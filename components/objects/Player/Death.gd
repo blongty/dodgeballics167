@@ -10,8 +10,13 @@ extends Particles2D
 func _ready():
 	pass # Replace with function body.
 	
+<<<<<<< HEAD
 func _input(event):
 	pass
+=======
+func death():
+	set_emitting(true)
+>>>>>>> Jingtian
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

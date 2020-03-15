@@ -1,5 +1,25 @@
 extends KinematicBody2D
 
+<<<<<<< HEAD
+=======
+#var sound1 = AudioStreamPlayer.new()
+#var speed = 0
+#var timer = 0
+##var in_range = 0
+#var cool_down = 0
+#var temp  = 0;
+var motion = Vector2()
+#export var max_snowballcount = 3
+#export var init_snowballcount = 3
+#var snowballcount
+#export (PackedScene) var bullet
+#export (PackedScene) var aim
+export (PackedScene) var snowp
+export (PackedScene) var particle1
+export (int) var player_id
+#export (float, 0, 1, .01) var axis_deadzone
+#onready var firepoint = get_node("firepoint")
+>>>>>>> Jingtian
 
 export(int) var player_id
 export(int) var move_speed = 400
@@ -117,5 +137,22 @@ func moving_at_all():
 		Input.is_action_pressed("MOVE_RIGHT")
 
 
+<<<<<<< HEAD
 func _on_Slap_animation_finished():
 	slapping = false
+=======
+func _on_Field_ready():
+	pass # Replace with function body.
+
+
+func _on_snowball_enter(area : Area2D):
+	if area.collision_layer == 2:
+		if area.parent.state == 0:
+			pass
+		else:
+			var death_p = get_node("Particles2D")
+			death_p.death()
+			var parent = get_parent();
+			parent.shake();
+			queue_free();
+>>>>>>> Jingtian
