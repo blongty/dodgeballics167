@@ -11,9 +11,9 @@
 [ext_resource path="res://components/objects/Player/slap/006.png" type="Texture" id=9]
 [ext_resource path="res://components/objects/Player/slap/007.png" type="Texture" id=10]
 [ext_resource path="res://components/objects/Player/slap/008.png" type="Texture" id=11]
-[ext_resource path="res://components/objects/Player/block/block.png" type="Texture" id=12]
-[ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=13]
-[ext_resource path="res://components/objects/Player/SlapController.gd" type="Script" id=14]
+[ext_resource path="res://components/objects/Player/SlapController.gd" type="Script" id=12]
+[ext_resource path="res://components/objects/Player/block/block.png" type="Texture" id=13]
+[ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.6507
@@ -72,7 +72,7 @@ animation = "Slap"
 frame = 8
 playing = true
 offset = Vector2( 16, 0 )
-script = ExtResource( 14 )
+script = ExtResource( 12 )
 
 [node name="Timer" type="Timer" parent="Slap"]
 
@@ -90,16 +90,17 @@ collision_mask = 2
 
 [node name="Sprite" type="Sprite" parent="Block"]
 position = Vector2( 16, 0 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
 position = Vector2( 16, 0 )
 shape = SubResource( 5 )
 
-[node name="Particles2D" parent="." instance=ExtResource( 13 )]
+[node name="Particles2D" parent="." instance=ExtResource( 14 )]
 scale = Vector2( 0.3, 0.3 )
 lifetime = 1.0
 [connection signal="area_entered" from="Area2D" to="." method="_on_snowball_enter"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="Slap" to="." method="_on_Slap_animation_finished"]
 [connection signal="timeout" from="Slap/Timer" to="Slap" method="_on_Timer_timeout"]

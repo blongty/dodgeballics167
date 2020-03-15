@@ -3,5 +3,5 @@ var camera
 func _ready():
 	camera = get_node("Camera2D")
 	
-func shake():
-	camera.shake()
+func shake(dur, freq, amp):
+	camera.shake(dur, freq, amp)

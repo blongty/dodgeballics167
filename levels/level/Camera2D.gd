@@ -7,5 +7,5 @@ var shake
 func _ready():
 	shake = get_node("Shake");
 	
-func shake():
-	shake.start()
+func shake(dur, freq, amp):
+	shake.start(dur, freq, amp)

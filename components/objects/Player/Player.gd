@@ -132,3 +132,15 @@ func _on_snowball_enter(area : Area2D):
 			var parent = get_parent();
 			parent.shake();
 			queue_free();
+
+
+func _on_Area2D_body_entered(body):
+	if body.collision_layer == 2:
+		if body.state == 0:
+			pass
+		else:
+			var death_p = get_node("Particles2D")
+			death_p.death()
+			var parent = get_parent();
+			parent.shake(.5, 20, 20); #calls Field Node shake(duration, frequency, amplitude) of screen shake effect.
+			queue_free();
