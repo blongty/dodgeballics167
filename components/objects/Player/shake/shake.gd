@@ -31,6 +31,3 @@ func _on_dur_timeout():
 func reset():
 	$ShakeTween.interpolate_property(camera, "offset", camera.offset, Vector2(), $fre.wait_time, TRANS, EASE)
 	$ShakeTween.start()
-func _on_Field_ready():
-	pass;
-	#start();
