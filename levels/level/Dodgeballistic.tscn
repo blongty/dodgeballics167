@@ -5,8 +5,8 @@
 [ext_resource path="res://components/objects/Player/shake/shake.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/level/pixelate-field.png" type="Texture" id=4]
 [ext_resource path="res://components/objects/Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://components/objects/snowball/snowball.tscn" type="PackedScene" id=6]
-[ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=7]
+[ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=6]
+[ext_resource path="res://components/objects/snowball/snowball.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
@@ -43,7 +43,7 @@ texture = ExtResource( 4 )
 [node name="StaticBody2D" type="StaticBody2D" parent="pixel-field-background"]
 position = Vector2( -960, -543.773 )
 collision_layer = 8
-collision_mask = 3
+collision_mask = 67
 physics_material_override = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pixel-field-background/StaticBody2D"]
@@ -70,34 +70,34 @@ shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 480, 540 )
-deatheffect = ExtResource( 7 )
+deatheffect = ExtResource( 6 )
 
 [node name="Player2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1440, 540 )
 rotation = 3.13031
 player_id = 1
-deatheffect = ExtResource( 7 )
+deatheffect = ExtResource( 6 )
 
-[node name="Snowball" parent="." instance=ExtResource( 6 )]
+[node name="Snowball" parent="." instance=ExtResource( 7 )]
 position = Vector2( 820, 300 )
 rotation = -1.63862
 
-[node name="Snowball2" parent="." instance=ExtResource( 6 )]
+[node name="Snowball2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 820, 540 )
 rotation = -1.63862
 
-[node name="Snowball3" parent="." instance=ExtResource( 6 )]
+[node name="Snowball3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 820, 780 )
 rotation = -1.63862
 
-[node name="Snowball4" parent="." instance=ExtResource( 6 )]
+[node name="Snowball4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1100, 300 )
 rotation = -1.63862
 
-[node name="Snowball5" parent="." instance=ExtResource( 6 )]
+[node name="Snowball5" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1100, 540 )
 rotation = -1.63862
 
-[node name="Snowball6" parent="." instance=ExtResource( 6 )]
+[node name="Snowball6" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1100, 780 )
 rotation = -1.63862

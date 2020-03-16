@@ -124,7 +124,7 @@ func _on_Slap_animation_finished():
 	slapping = false
 
 func _on_snowball_enter(area : Area2D):
-	if area.collision_layer == 2:
+	if area.collision_layer == 2 or area.collison_layer == 64:
 		if area.parent.state == 0:
 			pass
 		else:
@@ -136,7 +136,7 @@ func _on_snowball_enter(area : Area2D):
 
 
 func _on_Area2D_body_entered(body):
-	if body.collision_layer == 2:
+	if body.get_collision_layer() == 2 or body.get_collision_layer()==64:
 		if body.state == 0:
 			pass
 		else:

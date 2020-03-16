@@ -18,16 +18,26 @@ func _physics_process(delta):
 	#The ball is in the normal state, can be blocked
 	if (speed >= state_one_speed  and speed <= state_two_speed):
 		state = 1;
+		set_collision_layer_bit(1,true)
+		set_collision_layer_bit(6,false)
 		$Sprite.set_modulate(Color(0,1,0))
 		print("ball state is one")
+		set_angular_damp(normal_ball_damp)
+		set_linear_damp(normal_ball_damp)
 	#The ball is in the high speed, can not be blocked
 	elif (speed > state_two_speed):
 		state = 2;
+		set_collision_layer_bit(1,false)
+		set_collision_layer_bit(6,true)
 		$Sprite.set_modulate(Color(1, 0, 0))
 		print("ball state is two")
+		set_angular_damp(normal_ball_damp)
+		set_linear_damp(normal_ball_damp)
 	#The ball is dead.
 	else:
 		state = 0;
+		set_collision_layer_bit(1,true)
+		set_collision_layer_bit(6,false)
 		$Sprite.set_modulate(Color(1,1,1))
 		set_angular_damp(dead_ball_damp)
 		set_linear_damp(dead_ball_damp)
@@ -47,6 +57,6 @@ func set_direction_offset(offset: Vector2, radius: float = -100):
 
 
 func _on_Snowball_body_entered(body):
-	if body.collision_layer == 16:
-		var par = self.get_parent();
-		par.shake();
+	#if body.collision_layer == 8:
+	var par = self.get_parent();
+	par.shake();
