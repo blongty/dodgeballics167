@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/level/test.gd" type="Script" id=1]
 [ext_resource path="res://levels/level/Camera2D.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://components/objects/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=6]
 [ext_resource path="res://components/objects/snowball/snowball.tscn" type="PackedScene" id=7]
+[ext_resource path="res://components/objects/Particle1/P1.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
@@ -81,23 +82,29 @@ deatheffect = ExtResource( 6 )
 [node name="Snowball" parent="." instance=ExtResource( 7 )]
 position = Vector2( 820, 300 )
 rotation = -1.63862
+bounceparticle = ExtResource( 8 )
 
 [node name="Snowball2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 820, 540 )
 rotation = -1.63862
+bounceparticle = ExtResource( 8 )
 
 [node name="Snowball3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 820, 780 )
 rotation = -1.63862
+bounceparticle = ExtResource( 8 )
 
 [node name="Snowball4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1100, 300 )
 rotation = -1.63862
+bounceparticle = ExtResource( 8 )
 
 [node name="Snowball5" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1100, 540 )
 rotation = -1.63862
+bounceparticle = ExtResource( 8 )
 
 [node name="Snowball6" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1100, 780 )
 rotation = -1.63862
+bounceparticle = ExtResource( 8 )

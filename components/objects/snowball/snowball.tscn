@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://components/objects/snowball/snowball.gd" type="Script" id=1]
 [ext_resource path="res://components/objects/snowball/base.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 44.048
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 47.5908
 
 [node name="Snowball" type="RigidBody2D"]
 scale = Vector2( 1.00765, 1 )
@@ -24,6 +27,14 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 0
+shape = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Snowball_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

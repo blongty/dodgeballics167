@@ -3,16 +3,19 @@ export(float) var state_one_speed=20
 export(float) var state_two_speed=50
 export(float) var dead_ball_damp=50
 export(float) var normal_ball_damp=-1
+export(PackedScene) var bounceparticle
 var direction : Vector2
 var state : int
+var speed
+var velocity
 
 func _ready():
 	pass
 
 # Once added to the scene tree, function will immediately start moving
 func _physics_process(delta):
-	var velocity = get_linear_velocity()
-	var speed = velocity.length()
+	velocity = get_linear_velocity()
+	speed = velocity.length()
 	#apply_impulse(Vector2(), direction.normalized() * speed)
 	
 	#The ball is in the normal state, can be blocked
@@ -55,8 +58,28 @@ func set_direction_offset(offset: Vector2, radius: float = -100):
 	direction = offset
 	direction = direction.normalized()
 
+#func _on_Area2D_body_entered(body):
+#	if body.collision_layer == 8:
+#		var bb = bounceparticle.instance()
+#		bb.position = self.position
+#		self.get_parent().add_child(bb)
+#		var par = self.get_parent();
+#		par.shake(.5, 20, speed/20);
+
 
 func _on_Snowball_body_entered(body):
-	#if body.collision_layer == 8:
-	var par = self.get_parent();
-	par.shake();
+	if body.collision_layer == 8:
+		var bb = bounceparticle.instance()
+		bb.position = self.position
+		self.get_parent().add_child(bb)
+		var par = self.get_parent();
+		par.shake(.5, 20, speed/20);
+
+
+func _on_Area2D_body_entered(body):
+	if body.collision_layer == 8:
+		var bb = bounceparticle.instance()
+		bb.position = self.position
+		self.get_parent().add_child(bb)
+		var par = self.get_parent();
+		par.shake(.5, 20, speed/20);
