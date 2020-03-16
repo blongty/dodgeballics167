@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://levels/level/test.gd" type="Script" id=1]
 [ext_resource path="res://levels/level/Camera2D.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=6]
 [ext_resource path="res://components/objects/snowball/snowball.tscn" type="PackedScene" id=7]
 [ext_resource path="res://components/objects/Particle1/P1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://components/ui/ui.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
@@ -108,3 +109,5 @@ bounceparticle = ExtResource( 8 )
 position = Vector2( 1100, 780 )
 rotation = -1.63862
 bounceparticle = ExtResource( 8 )
+
+[node name="UI" parent="." instance=ExtResource( 9 )]
