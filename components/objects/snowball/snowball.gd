@@ -44,3 +44,9 @@ func set_direction_absolute(target : Vector2, radius : float = -100):
 func set_direction_offset(offset: Vector2, radius: float = -100):
 	direction = offset
 	direction = direction.normalized()
+
+
+func _on_Snowball_body_entered(body):
+	if body.collision_layer == 16:
+		var par = self.get_parent();
+		par.shake();

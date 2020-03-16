@@ -8,6 +8,7 @@ export(int) var move_speed = 400
 export(float, 0, 1, 0.05) var joy_deadzone = 0.2
 export(float) var slap_power = 1000
 export(float) var slap_cooldown = 0.5
+export(PackedScene) var deatheffect
 
 var motion = Vector2()
 var canInteract = false
@@ -139,8 +140,9 @@ func _on_Area2D_body_entered(body):
 		if body.state == 0:
 			pass
 		else:
-			var death_p = get_node("Particles2D")
-			death_p.death()
 			var parent = get_parent();
 			parent.shake(.5, 20, 20); #calls Field Node shake(duration, frequency, amplitude) of screen shake effect.
+			var dd = deatheffect.instance();
+			dd.position = self.position
+			parent.add_child(dd);
 			queue_free();

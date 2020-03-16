@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://levels/level/test.gd" type="Script" id=1]
 [ext_resource path="res://levels/level/Camera2D.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://levels/level/pixelate-field.png" type="Texture" id=4]
 [ext_resource path="res://components/objects/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://components/objects/snowball/snowball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://components/objects/Player/Death.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
@@ -69,11 +70,13 @@ shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 480, 540 )
+deatheffect = ExtResource( 7 )
 
 [node name="Player2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1440, 540 )
 rotation = 3.13031
 player_id = 1
+deatheffect = ExtResource( 7 )
 
 [node name="Snowball" parent="." instance=ExtResource( 6 )]
 position = Vector2( 820, 300 )
