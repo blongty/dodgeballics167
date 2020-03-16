@@ -12,13 +12,14 @@ initial_velocity_random = 1.0
 angular_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale = 0.1
+scale = 0.02
 
 [node name="Particles2D" type="Particles2D"]
 emitting = false
-amount = 4
-lifetime = 1.5
+amount = 15
+lifetime = 0.5
 one_shot = true
+explosiveness = 1.0
 local_coords = false
 process_material = SubResource( 1 )
 texture = ExtResource( 1 )

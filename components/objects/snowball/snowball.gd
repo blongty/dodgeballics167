@@ -82,4 +82,4 @@ func _on_Area2D_body_entered(body):
 		bb.position = self.position
 		self.get_parent().add_child(bb)
 		var par = self.get_parent();
-		par.shake(.5, 20, speed/20);
+		par.shake(.25, 20, speed/200);

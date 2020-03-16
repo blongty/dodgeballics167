@@ -10,6 +10,9 @@ export(float) var slap_power = 1000
 export(float) var slap_cooldown = 0.5
 export(PackedScene) var deatheffect
 
+onready var positionx = position.x
+onready var positiony = position.y
+
 var motion = Vector2()
 var canInteract = false
 var interactables = []
@@ -145,4 +148,6 @@ func _on_Area2D_body_entered(body):
 			var dd = deatheffect.instance();
 			dd.position = self.position
 			parent.add_child(dd);
-			queue_free();
+			position.x=positionx
+			position.y=positiony
+			#queue_free();
