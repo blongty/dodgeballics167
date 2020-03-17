@@ -148,6 +148,10 @@ func _on_Area2D_body_entered(body):
 			var dd = deatheffect.instance();
 			dd.position = self.position
 			parent.add_child(dd);
+			if (player_id == 0):
+				parent.bplus();
+			elif (player_id == 1):
+				parent.aplus();
 			position.x=positionx
 			position.y=positiony
 			#queue_free();
