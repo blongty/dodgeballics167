@@ -42,7 +42,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -172.791 ]
 }
-slap_power = 1500.0
+move_speed = 450
+slap_power = 1700.0
 slap_cooldown = 0.2
 
 [node name="Sprite2" type="Sprite" parent="."]
