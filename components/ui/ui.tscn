@@ -16,8 +16,6 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.51758
-margin_right = 2.51758
 custom_constants/margin_right = 50
 custom_constants/margin_top = 50
 custom_constants/margin_left = 50
@@ -35,28 +33,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 1820.0
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+margin_left = 810.0
+margin_right = 1010.0
 margin_bottom = 108.0
-alignment = 1
+rect_min_size = Vector2( 200, 108 )
+size_flags_horizontal = 6
 
-[node name="Left" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 832.0
-margin_right = 886.0
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Panel"]
+margin_right = 200.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 200, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/CenterContainer"]
+margin_left = 22.0
+margin_right = 177.0
+margin_bottom = 108.0
+size_flags_horizontal = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="Label" parent="MarginContainer/VBoxContainer/Panel/CenterContainer/HBoxContainer"]
+margin_right = 54.0
 margin_bottom = 108.0
 theme = ExtResource( 4 )
 text = "0"
 
-[node name="Seperator" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 890.0
-margin_right = 929.0
+[node name="Seperator" type="Label" parent="MarginContainer/VBoxContainer/Panel/CenterContainer/HBoxContainer"]
+margin_left = 58.0
+margin_right = 97.0
 margin_bottom = 108.0
 theme = ExtResource( 4 )
 text = "-"
 
-[node name="Right" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 933.0
-margin_right = 987.0
+[node name="Right" type="Label" parent="MarginContainer/VBoxContainer/Panel/CenterContainer/HBoxContainer"]
+margin_left = 101.0
+margin_right = 155.0
 margin_bottom = 108.0
 theme = ExtResource( 4 )
 text = "0"
@@ -66,6 +82,9 @@ margin_top = 112.0
 margin_right = 1820.0
 margin_bottom = 807.0
 size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 margin_left = 825.0
